@@ -1,11 +1,14 @@
 import { FormContexts } from '../../store/context';
 import { FormContext } from '../../types/types';
 import styles from './Summary.module.scss'
-import {useContext} from 'react'
+import {useContext, useState} from 'react'
+import Confirm from '../Confirm/Confirm';
+import { motion } from 'framer-motion';
+
 
 const Summary = () => {
     const {finish,newSelectArr,newAddonsArr,isYearly,onActive,idRight} =useContext(FormContexts) as FormContext;
-
+    const [confirm, setConfirm] =useState(false)
 
     const totalPrice = finish.filter((item: { priceYear: number; })=>item.priceYear).reduce(
 		(sum: number, obj: { priceMounth: number , priceYear: number  }) => {
@@ -18,9 +21,19 @@ const Summary = () => {
         },0
 	);
     
+    const confirmImmitation =()=> {
+        setConfirm(true)
+        setTimeout(()=> {
+            setConfirm(false)
+        },2000)
+    }
     
   return (
-    <div className={styles.main}>
+    <motion.div className={styles.main}
+    initial={{ opacity: 0}}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 0.5 }}>
+        {confirm? <Confirm/> : <>
         <h2>Finishing up</h2>
         <p>Double-check everything looks OK before confirming</p>
         <div className={styles.wrapper}>
@@ -51,9 +64,12 @@ const Summary = () => {
                 <p className={styles.sumPrice}>{isYearly? `$${totalPrice}/yr`: `$${totalPrice}/mo`}</p>
         </div>
                 {/* confrim finish array */}
-        <button  className={styles.summaryButton}>Confirm</button>
+        <button onClick={confirmImmitation} className={styles.summaryButton}>Confirm</button>
         <button onClick={()=> {onActive(idRight-1)}}  className={styles.summaryGoBackButton}>Go Back</button>
-    </div>
+     
+        </>}
+       
+    </motion.div>
   )
 }
 

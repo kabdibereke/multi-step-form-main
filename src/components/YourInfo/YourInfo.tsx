@@ -5,6 +5,7 @@ import styles from './YourInfo.module.scss'
 import InputMask from "react-input-mask";
 import { useContext } from "react";
 import { FormContexts } from "../../store/context";
+import { motion } from "framer-motion";
 interface YourInfoProps extends IYourInfo {}
 
 
@@ -20,7 +21,10 @@ const YourInfo = () => {
         onActive(idRight+1)
   };
   return (
-    <div className={styles.main}>
+    <motion.div className={styles.main}
+    initial={{ opacity: 0}}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 0.5 }}>
         <h2 >Personal Info</h2>
         <p>Please Provide your name, email address, and number</p>
         <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
@@ -73,7 +77,7 @@ const YourInfo = () => {
            </div>
             <button type='submit' className={styles.yourInfoButton}>Next Step</button>
         </form>
-    </div>
+    </motion.div>
   )
 }
 

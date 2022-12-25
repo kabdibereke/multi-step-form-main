@@ -4,6 +4,7 @@ import styles from './SelectPlan.module.scss'
 import { FormContext} from '../../types/types'
 import Switch from "react-switch";
 import { FormContexts } from '../../store/context'
+import { motion } from 'framer-motion';
 
 
 const SelectPlan = () => {
@@ -19,7 +20,10 @@ const SelectPlan = () => {
         }))
     }
   return (
-    <div className={styles.main}>
+    <motion.div className={styles.main}
+    initial={{ opacity: 0}}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 0.5 }}>
         <h2 >Select your plan</h2>
         <p>You have the option of monthly or yearly billing</p>
         <div className={styles.selects}>
@@ -34,7 +38,7 @@ const SelectPlan = () => {
         </div>
         <button onClick={()=> onActive(idRight+1)} className={styles.selectButton}>Next Step</button>
         <button onClick={()=> onActive(idRight-1)} className={styles.selectGoBackButton}>Go Back</button>
-    </div>
+    </motion.div>
   )
 }
 

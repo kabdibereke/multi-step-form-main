@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import React, { useContext, useState } from 'react'
 import { FormContexts } from '../../store/context'
 import { FormContext, IAddonsArr } from '../../types/types'
@@ -15,7 +16,10 @@ const Addons = () => {
     }))
   }
   return (
-    <div className={styles.main}>
+    <motion.div className={styles.main}
+    initial={{ opacity: 0}}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 0.5 }}>
         <h2>Pick add-ons</h2>
         <p>Add-ons help enhance your gaming experience</p>
         <div className={styles.addonsWrapper}>
@@ -25,7 +29,7 @@ const Addons = () => {
         </div>
         <button onClick={()=> onActive(idRight+1)} className={styles.addonsButton}>Next Step</button>
         <button onClick={()=> onActive(idRight-1)} className={styles.addonsButtonGoBackButton}>Go Back</button>
-    </div>
+    </motion.div>
   )
 }
 
