@@ -30,7 +30,7 @@ const YourInfo = () => {
                     {...register("name", {
                     required: true,
                     maxLength: 20,
-                    pattern: /^[A-Za-z]+$/i
+                    
                     })}
                     placeholder="Name"
                     onChange={(e:React.ChangeEvent<HTMLInputElement>)=> setName(e.target.value)}
@@ -40,9 +40,7 @@ const YourInfo = () => {
                 {errors?.name?.type === "maxLength" && (
                     <p className={styles.error}>First name cannot exceed 20 characters</p>
                 )}
-                {errors?.name?.type === "pattern" && (
-                    <p className={styles.error}>Alphabetical characters only</p>
-                )}
+                
             </div>
 
            <div className={styles.inputWrapper}>
@@ -50,7 +48,7 @@ const YourInfo = () => {
                 <input 
                     {...register("email", {
                     required: true, 
-                    pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/ })} 
+                    pattern: /^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/ })} 
                     placeholder="Email"
                     onChange={(e:React.ChangeEvent<HTMLInputElement>)=> setEmail(e.target.value)}
                     value={email}/>
