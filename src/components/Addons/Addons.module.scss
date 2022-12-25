@@ -1,0 +1,69 @@
+.main {
+    margin-left: 25px;
+    position: relative;
+    margin-top: 35px;
+}
+
+.addonsWrapper {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.addonsButton {
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    right: 0;
+    bottom: 100px;
+    background-color:var(--gray-500);
+    border-radius:8px;
+    color:var(--gray-50);
+    font-size: 14px;
+  
+    cursor: pointer;
+    &:hover{
+        background-color:var(--gray-400);
+    }
+}
+
+.addonsButtonGoBackButton  {
+        border:none;
+        width: 100px;
+        height: 50px;
+        position: absolute;
+        left: 0;
+        bottom: 100px;
+        background-color:var(--gray-50);
+        border-radius:8px;
+        color:var(--gray-500);
+        font-size: 14px;
+      
+        cursor: pointer;
+        &:hover{
+            background-color:var(--gray-50);
+        }
+    
+    
+}
+
+@media (max-width: 710px) {
+    .main {
+        margin-left: 0;
+        
+    }
+    .addonsButton {
+        bottom: -70px;
+       
+    }
+    
+    .addonsButtonGoBackButton {
+        bottom: -70px;
+           
+        
+    }
+    
+}
+

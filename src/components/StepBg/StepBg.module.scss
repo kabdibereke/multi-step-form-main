@@ -1,0 +1,39 @@
+.steps {
+   
+    flex-direction: column;
+    height: 100%;
+    border-radius: 8px;
+    width: 40%;
+    background: url('../../assets/bg-sidebar-desktop.svg') center center/ cover no-repeat;
+}
+
+.bg {
+    width: fit-content;
+    padding: 60px 0 0 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+ 
+}
+
+@media (max-width: 710px) {
+    .steps {
+       display: flex;
+        flex-direction: row;
+        height: 20%;
+        border-radius: 8px;
+        width: 100%;
+        background: url('../../assets/bg-sidebar-desktop.svg') center center/ cover no-repeat;
+    }
+    
+    .bg {
+        justify-content: center;
+        align-items:center;
+        width: 100%;
+        padding:20px 5px;
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+  }
